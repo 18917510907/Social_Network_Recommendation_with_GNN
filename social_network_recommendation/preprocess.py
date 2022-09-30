@@ -5,16 +5,20 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-rate_f = np.loadtxt('datasets/Epinions/ratings_data.txt', dtype = np.int32)
-trust_f = np.loadtxt('datasets/Epinions/trust_data.txt', dtype = np.int32)
+rate_f = np.loadtxt('datasets/ratings_data.txt', dtype = np.int32)
+trust_f = np.loadtxt('datasets/trust_data.txt', dtype = np.int32)
 
 rate_list = []
 trust_list = []
 
 u_items_list = []  #存储每个用户交互过的物品iid和对应的评分，没有则为[(0, 0)]
+#Store the item iid and the corresponding rating for each user interaction, or [(0, 0)] if none
 u_users_list = []  #存储与每个物品相关联的用户及其评分，没有则为[(0, 0)]
+#Store the users associated with each item and their ratings, or [(0, 0)] if none
 u_users_items_list = [] #存储用户每个朋友的物品iid列表
+#Store a list of items iid for each friend of the user
 i_users_list = [] #存储与每个物品相关联的用户及其评分，没有则为[(0, 0)]
+#Store the users associated with each item and their ratings, or [(0, 0)] if none
 
 user_count = 0
 item_count = 0
@@ -46,7 +50,7 @@ valid_set = pos_list[num_test:2 * num_test]
 train_set = pos_list[2 * num_test:]
 print('Train samples: {}, Valid samples: {}, Test samples: {}'.format(len(train_set), len(valid_set), len(test_set)))
 
-with open('datasets/Epinions/dataset.pkl', 'wb') as f:
+with open('datasets/dataset.pkl', 'wb') as f:
 	pickle.dump(train_set, f, pickle.HIGHEST_PROTOCOL)
 	pickle.dump(valid_set, f, pickle.HIGHEST_PROTOCOL)
 	pickle.dump(test_set, f, pickle.HIGHEST_PROTOCOL)
@@ -114,7 +118,7 @@ for u in tqdm(range(user_count + 1)):
 			uu_items.append(u_items_list[uid])
 		u_users_items_list.append(uu_items)
 
-with open('D:/A_FUDAN/社交网络挖掘/GraphRec_PyTorch/datasets/Epinions/list.pkl', 'wb') as f:
+with open('datasets/list.pkl', 'wb') as f:
 	pickle.dump(u_items_list, f, pickle.HIGHEST_PROTOCOL)
 	pickle.dump(u_users_list, f, pickle.HIGHEST_PROTOCOL)
 	pickle.dump(u_users_items_list, f, pickle.HIGHEST_PROTOCOL)
