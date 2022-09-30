@@ -4,7 +4,7 @@
 As a social platform, it offers a service that allows users to rate items, browse reviews, and add friends to their own "circle". Therefore, the dataset provides a large amount of rating and social information.
 
 ## Code Structure
--dataloader.py-load data after preprocess。
+-dataloader.py-load data after preprocess  
 -graph.py-draw social network graph  
 -main.py-model establishment and evaluation  
 -preprocess.py-data preprocessing  
