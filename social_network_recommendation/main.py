@@ -37,12 +37,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def main():
     print('Loading data...')
-    with open('datasets/Epinions/dataset.pkl', 'rb') as f:
+    with open('datasets/dataset.pkl', 'rb') as f:
         train_set = pickle.load(f)
         valid_set = pickle.load(f)
         test_set = pickle.load(f)
 
-    with open('datasets/Epinions/list.pkl', 'rb') as f:
+    with open('datasets/list.pkl', 'rb') as f:
         u_items_list = pickle.load(f)
         u_users_list = pickle.load(f)
         u_users_items_list = pickle.load(f)
