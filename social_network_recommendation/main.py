@@ -130,6 +130,7 @@ def trainForEpoch(train_loader, model, optimizer, epoch, num_epochs, criterion, 
 
 
 def validate(valid_loader, model):
+    #test the model performance via mae & rmse
     model.eval()
     errors = []
     with torch.no_grad():
