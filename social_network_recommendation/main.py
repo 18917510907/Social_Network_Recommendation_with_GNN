@@ -78,6 +78,7 @@ def main():
         mae, rmse = validate(valid_loader, model)
 
         # 存储模型的checkpoint
+        # save model checkpoint
         ckpt_dict = {
             'epoch': epoch + 1,
             'state_dict': model.state_dict(),
