@@ -35,6 +35,10 @@ print(args)
 here = os.path.dirname(os.path.abspath(__file__))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+# this is a test
+a = 1
+b = 2
+
 def main():
     print('Loading data...')
     with open('datasets/dataset.pkl', 'rb') as f:
